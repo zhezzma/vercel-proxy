@@ -16,13 +16,13 @@
 
 ### 部署到 Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/vercel-proxy)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/zhezzma/vercel-proxy)
 
 ### 本地开发
 
 ```bash
 # 克隆项目
-git clone https://github.com/yourusername/vercel-proxy.git
+git clone https://github.com/zhezzma/vercel-proxy.git
 
 # 安装依赖
 npm install
