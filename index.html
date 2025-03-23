@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vercel Proxy - 简单可靠的请求代理服务</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #333;
+        }
+        h1 {
+            color: #000;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+        }
+        h2 {
+            margin: 2rem 0 1rem;
+            color: #2c3e50;
+        }
+        code {
+            background: #f6f8fa;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            font-size: 0.9em;
+        }
+        pre {
+            background: #f6f8fa;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        pre code {
+            background: none;
+            padding: 0;
+        }
+        p {
+            margin: 1rem 0;
+        }
+        .highlight {
+            background: #fff3d4;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+        }
+        ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        li {
+            margin: 0.5rem 0;
+        }
+        .demo {
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 1px solid #eee;
+            border-radius: 5px;
+        }
+        .note {
+            border-left: 4px solid #42b983;
+            padding-left: 1rem;
+            color: #666;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vercel Proxy</h1>
+    <p class="highlight">一个简单可靠的请求代理服务，支持 URL 编码、错误处理、超时保护等特性。</p>
+
+    <h2>基本用法</h2>
+    <pre><code>GET https://[your-vercel-domain]/api?url=https://api.example.com/data</code></pre>
+    
+    <div class="note">
+        支持所有 HTTP 方法（GET、POST、PUT、DELETE 等）
+    </div>
+
+    <h2>特性</h2>
+    <ul>
+        <li>完整的 CORS 支持</li>
+        <li>自动 URL 解码</li>
+        <li>30 秒超时保护</li>
+        <li>错误处理和友好提示</li>
+        <li>支持编码后的 URL</li>
+    </ul>
+
+    <h2>示例</h2>
+    <div class="demo">
+        <h3>编码的 URL：</h3>
+        <pre><code>GET https://[your-vercel-domain]/api?url=https%3A%2F%2Fapi.example.com%2Fdata%3Fkey%3Dvalue</code></pre>
+        
+        <h3>POST 请求：</h3>
+        <pre><code>POST https://[your-vercel-domain]/api?url=https://api.example.com/submit
+Content-Type: application/json
+
+{
+    "data": "example"
+}</code></pre>
+    </div>
+
+    <h2>错误处理</h2>
+    <p>所有错误都会返回标准的 JSON 响应：</p>
+    <pre><code>{
+    "error": "错误描述信息",
+    "status": 400-599
+}</code></pre>
+
+    <h2>状态码说明</h2>
+    <ul>
+        <li>400 - 请求参数错误（如缺少 url 参数）</li>
+        <li>405 - 方法不被允许</li>
+        <li>502 - 目标服务器连接错误</li>
+        <li>504 - 请求超时</li>
+    </ul>
+
+    <div class="note">
+        <p>项目开源在 GitHub，欢迎贡献和提出建议！</p>
+    </div>
+</body>
+</html>

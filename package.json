@@ -1,0 +1,13 @@
+{
+  "name": "vercel-proxy",
+  "scripts": {
+    "start": "vercel dev",
+    "deploy": "vercel"
+  },
+  "dependencies": {
+    "@vercel/functions": "^2.0.0"
+  },
+  "devDependencies": {
+    "vercel": "^41.4.1"
+  }
+}
